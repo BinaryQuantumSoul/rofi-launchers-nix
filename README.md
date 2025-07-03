@@ -123,7 +123,7 @@ theme='style-1'
 
 **`Change Colors` :** Edit `~/.config/rofi/launchers/type-X/shared/colors.rasi` file and edit the following line to use the color-scheme you like.
 ```css
-@import "~/.config/rofi/colors/onedark.rasi"
+@import "~/.config/rofi/assets/colors/onedark.rasi"
 ```
 
 > Colors in `type-5`, `type-6` and `type-7` are hard-coded (based on image colors) and can be changed by editing the respective **`style-X.rasi`** file.
@@ -268,13 +268,13 @@ theme='style-1'
 
 **`Change Theme` :** Edit `~/.config/rofi/applets/shared/theme.bash` script and edit the following line to use the type and style you like.
 ```ini
-type="$HOME/.config/rofi/applets/type-1"
+type="$HOME/.config/rofi/scripts/applets/type-1"
 style='style-1.rasi'
 ```
 
 **`Change Colors` :** Edit `~/.config/rofi/applets/shared/colors.rasi` file and edit the following line to use the color-scheme you like.
 ```css
-@import "~/.config/rofi/colors/onedark.rasi"
+@import "~/.config/rofi/assets/colors/onedark.rasi"
 ```
 
 > Colors in `type-4` and `type-5` are hard-coded (based on image colors) and can be changed by editing the respective **`style-X.rasi`** file.
@@ -371,7 +371,7 @@ theme='style-1'
 
 **`Change Colors` :** Edit `~/.config/rofi/powermenu/type-X/shared/colors.rasi` file and edit the following line to use the color-scheme you like.
 ```css
-@import "~/.config/rofi/colors/onedark.rasi"
+@import "~/.config/rofi/assets/colors/onedark.rasi"
 ```
 
 > Colors in `type-5` and `type-6` are hard-coded (based on image colors) and can be changed by editing the respective **`style-X.rasi`** file.
@@ -440,9 +440,9 @@ theme='style-1'
 
 #### Simple way to execute scripts
 
-There's a `$HOME/.config/rofi/scripts` directory, which contains links to each script. you can execute these links to open any type of Launcher, Applet or Powermenu.
+There's a `$HOME/.config/rofi/scripts/scripts` directory, which contains links to each script. you can execute these links to open any type of Launcher, Applet or Powermenu.
 
-You can add `$HOME/.config/rofi/scripts` directory to your `$PATH` variable so that entering `t7_launcher` in the terminal (or executing this command) will summon the ***type-7 launcher***. you can do it by -
+You can add `$HOME/.config/rofi/scripts/scripts` directory to your `$PATH` variable so that entering `t7_launcher` in the terminal (or executing this command) will summon the ***type-7 launcher***. you can do it by -
 
 - In `bash`
 ``` bash
@@ -453,7 +453,7 @@ echo "PATH=$PATH:~/.config/rofi/scripts" >> ~/.profile
 - In `zsh` (oh-my-zsh)
 ``` zsh
 # Edit .zshrc and add this line
-export PATH=$HOME/.config/rofi/scripts:$PATH
+export PATH=$HOME/.config/rofi/scripts/scripts:$PATH
 ```
 
 > **Warning:** After changing the shell files, Logout and Login back again to update the `$PATH` environment variable.

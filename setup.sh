@@ -2,7 +2,8 @@
 
 ## Author : Aditya Shakya (adi1090x)
 ## Github : @adi1090x
-#
+## Edited by QuantumSoul
+
 ## Installer Script
 
 ## Colors ----------------------------
@@ -18,12 +19,10 @@ ROFI_DIR="$HOME/.config/rofi"
 # Install Fonts
 install_fonts() {
 	echo -e ${BBlue}"\n[*] Installing fonts..." ${Color_Off}
-	if [[ -d "$FONT_DIR" ]]; then
-		cp -rf $DIR/files/fonts/* "$FONT_DIR"
-	else
+	if [[ ! -d "$FONT_DIR" ]]; then
 		mkdir -p "$FONT_DIR"
-		cp -rf $DIR/files/fonts/* "$FONT_DIR"
 	fi
+	cp -rf "$DIR/assets/fonts/"* "$FONT_DIR"
 	echo -e ${BYellow}"[*] Updating font cache...\n" ${Color_Off}
 	fc-cache
 }
@@ -34,6 +33,7 @@ install_themes() {
 		echo -e ${BPurple}"[*] Creating a backup of your rofi configs..." ${Color_Off}
 		mv "$ROFI_DIR" "${ROFI_DIR}.${USER}"
 	fi
+
 	echo -e ${BBlue}"[*] Installing rofi configs..." ${Color_Off}
 	{ mkdir -p "$ROFI_DIR"; cp -rf $DIR/files/* "$ROFI_DIR"; }
 
