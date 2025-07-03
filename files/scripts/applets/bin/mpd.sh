@@ -5,10 +5,6 @@
 #
 ## Applets : MPD (music)
 
-# Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="$type/$style"
-
 # Theme Elements
 status="`mpc status`"
 if [[ -z "$status" ]]; then
@@ -82,7 +78,8 @@ rofi_cmd() {
 		-mesg "$mesg" \
 		${active} ${urgent} \
 		-markup-rows \
-		-theme ${theme}
+		-theme-str "$ROFI_LAUNCH_THEME_COLOR_STR" -theme-str "$ROFI_LAUNCH_THEME_FONT_STR" \
+		-theme "$ROFI_LAUNCH_THEME_MAIN"
 }
 
 # Pass variables to rofi dmenu

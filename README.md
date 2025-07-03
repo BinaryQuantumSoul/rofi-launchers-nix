@@ -137,7 +137,6 @@ theme='style-1'
 |--|--|--|--|--|
 |![img](previews/launchers/type-1/1.png)|![img](previews/launchers/type-1/2.png)|![img](previews/launchers/type-1/3.png)|![img](previews/launchers/type-1/4.png)|![img](previews/launchers/type-1/5.png)|
 
-
 |Style 6|Style 7|Style 8|Style 9|Style 10|
 |--|--|--|--|--|
 |![img](previews/launchers/type-1/6.png)|![img](previews/launchers/type-1/7.png)|![img](previews/launchers/type-1/8.png)|![img](previews/launchers/type-1/9.png)|![img](previews/launchers/type-1/10.png)|
@@ -154,7 +153,6 @@ theme='style-1'
 |Style 1|Style 2|Style 3|Style 4|Style 5|
 |--|--|--|--|--|
 |![img](previews/launchers/type-2/1.png)|![img](previews/launchers/type-2/2.png)|![img](previews/launchers/type-2/3.png)|![img](previews/launchers/type-2/4.png)|![img](previews/launchers/type-2/5.png)|
-
 
 |Style 6|Style 7|Style 8|Style 9|Style 10|
 |--|--|--|--|--|
@@ -173,7 +171,6 @@ theme='style-1'
 |--|--|--|--|--|
 |![img](previews/launchers/type-3/1.png)|![img](previews/launchers/type-3/2.png)|![img](previews/launchers/type-3/3.png)|![img](previews/launchers/type-3/4.png)|![img](previews/launchers/type-3/5.png)|
 
-
 |Style 6|Style 7|Style 8|Style 9|Style 10|
 |--|--|--|--|--|
 |![img](previews/launchers/type-3/6.png)|![img](previews/launchers/type-3/7.png)|![img](previews/launchers/type-3/8.png)|![img](previews/launchers/type-3/9.png)|![img](previews/launchers/type-3/10.png)|
@@ -186,7 +183,6 @@ theme='style-1'
 |Style 1|Style 2|Style 3|Style 4|Style 5|
 |--|--|--|--|--|
 |![img](previews/launchers/type-4/1.png)|![img](previews/launchers/type-4/2.png)|![img](previews/launchers/type-4/3.png)|![img](previews/launchers/type-4/4.png)|![img](previews/launchers/type-4/5.png)|
-
 
 |Style 6|Style 7|Style 8|Style 9|Style 10|
 |--|--|--|--|--|
@@ -210,7 +206,6 @@ theme='style-1'
 |--|--|--|--|--|
 |![img](previews/launchers/type-6/1.png)|![img](previews/launchers/type-6/2.png)|![img](previews/launchers/type-6/3.png)|![img](previews/launchers/type-6/4.png)|![img](previews/launchers/type-6/5.png)|
 
-
 |Style 6|Style 7|Style 8|Style 9|Style 10|
 |--|--|--|--|--|
 |![img](previews/launchers/type-6/6.png)|![img](previews/launchers/type-6/7.png)|![img](previews/launchers/type-6/8.png)|![img](previews/launchers/type-6/9.png)|![img](previews/launchers/type-6/10.png)|
@@ -223,7 +218,6 @@ theme='style-1'
 |Style 1|Style 2|Style 3|Style 4|Style 5|
 |--|--|--|--|--|
 |![img](previews/launchers/type-7/1.png)|![img](previews/launchers/type-7/2.png)|![img](previews/launchers/type-7/3.png)|![img](previews/launchers/type-7/4.png)|![img](previews/launchers/type-7/5.png)|
-
 
 |Style 6|Style 7|Style 8|Style 9|Style 10|
 |--|--|--|--|--|

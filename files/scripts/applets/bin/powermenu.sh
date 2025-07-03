@@ -5,10 +5,6 @@
 #
 ## Applets : Power Menu
 
-# Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="$type/$style"
-
 # Theme Elements
 prompt="`hostname`"
 mesg="Uptime : `uptime -p | sed -e 's/up //g'`"
@@ -51,7 +47,8 @@ rofi_cmd() {
 		-p "$prompt" \
 		-mesg "$mesg" \
 		-markup-rows \
-		-theme ${theme}
+		-theme-str "$ROFI_LAUNCH_THEME_COLOR_STR" -theme-str "$ROFI_LAUNCH_THEME_FONT_STR" \
+		-theme "$ROFI_LAUNCH_THEME_MAIN"
 }
 
 # Pass variables to rofi dmenu
@@ -69,7 +66,8 @@ confirm_cmd() {
 		-dmenu \
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?' \
-		-theme ${theme}
+		-theme-str "$ROFI_LAUNCH_THEME_COLOR_STR" -theme-str "$ROFI_LAUNCH_THEME_FONT_STR" \
+		-theme "$ROFI_LAUNCH_THEME_MAIN"
 }
 
 # Ask for confirmation

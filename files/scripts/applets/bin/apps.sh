@@ -5,10 +5,6 @@
 #
 ## Applets : Favorite Applications
 
-# Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="$type/$style"
-
 # Theme Elements
 prompt='Applications'
 mesg="Installed Packages : `pacman -Q | wc -l` (pacman)"
@@ -55,7 +51,8 @@ rofi_cmd() {
 		-p "$prompt" \
 		-mesg "$mesg" \
 		-markup-rows \
-		-theme ${theme}
+		-theme-str "$ROFI_LAUNCH_THEME_COLOR_STR" -theme-str "$ROFI_LAUNCH_THEME_FONT_STR" \
+		-theme "$ROFI_LAUNCH_THEME_MAIN"
 }
 
 # Pass variables to rofi dmenu

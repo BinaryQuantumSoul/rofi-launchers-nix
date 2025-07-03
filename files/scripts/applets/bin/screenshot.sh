@@ -5,10 +5,6 @@
 #
 ## Applets : Screenshot
 
-# Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="$type/$style"
-
 # Theme Elements
 prompt='Screenshot'
 mesg="DIR: `xdg-user-dir PICTURES`/Screenshots"
@@ -56,7 +52,8 @@ rofi_cmd() {
 		-p "$prompt" \
 		-mesg "$mesg" \
 		-markup-rows \
-		-theme ${theme}
+		-theme-str "$ROFI_LAUNCH_THEME_COLOR_STR" -theme-str "$ROFI_LAUNCH_THEME_FONT_STR" \
+		-theme "$ROFI_LAUNCH_THEME_MAIN"
 }
 
 # Pass variables to rofi dmenu
@@ -161,5 +158,4 @@ case ${chosen} in
 		run_cmd --opt5
         ;;
 esac
-
 

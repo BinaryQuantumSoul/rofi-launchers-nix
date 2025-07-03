@@ -15,10 +15,6 @@ configuration {
 	drun-display-format:        "{name}";
 }
 
-/*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
-@import                          "shared/fonts.rasi"
-
 /*****----- Main Window -----*****/
 window {
     transparency:                "real";

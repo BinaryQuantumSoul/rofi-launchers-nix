@@ -5,10 +5,6 @@
 #
 ## Applets : Quick Links
 
-# Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="$type/$style"
-
 # Theme Elements
 prompt='Quick Links'
 mesg="Using '$BROWSER' as web browser"
@@ -54,7 +50,8 @@ rofi_cmd() {
 		-p "$prompt" \
 		-mesg "$mesg" \
 		-markup-rows \
-		-theme ${theme}
+		-theme-str "$ROFI_LAUNCH_THEME_COLOR_STR" -theme-str "$ROFI_LAUNCH_THEME_FONT_STR" \
+		-theme "$ROFI_LAUNCH_THEME_MAIN"
 }
 
 # Pass variables to rofi dmenu

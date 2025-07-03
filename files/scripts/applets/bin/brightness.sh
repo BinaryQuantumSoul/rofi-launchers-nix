@@ -5,10 +5,6 @@
 #
 ## Applets : Brightness
 
-# Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="$type/$style"
-
 # Brightness Info
 backlight="$(printf "%.0f\n" `light -G`)"
 card="`light -L | grep 'backlight' | head -n1 | cut -d'/' -f3`"
@@ -68,7 +64,8 @@ rofi_cmd() {
 		-p "$prompt" \
 		-mesg "$mesg" \
 		-markup-rows \
-		-theme ${theme}
+		-theme-str "$ROFI_LAUNCH_THEME_COLOR_STR" -theme-str "$ROFI_LAUNCH_THEME_FONT_STR" \
+		-theme "$ROFI_LAUNCH_THEME_MAIN"
 }
 
 # Pass variables to rofi dmenu

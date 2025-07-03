@@ -20,10 +20,6 @@ configuration {
 	window-format:              "{w} · {c} · {t}";
 }
 
-/*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
-@import                          "shared/fonts.rasi"
-
 * {
     border-colour:               var(selected);
     handle-colour:               var(selected);

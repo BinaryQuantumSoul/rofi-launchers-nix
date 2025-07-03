@@ -5,10 +5,6 @@
 #
 ## Applets : Battery
 
-# Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="$type/$style"
-
 # Battery Info
 battery="`acpi -b | cut -d',' -f1 | cut -d':' -f1`"
 status="`acpi -b | cut -d',' -f1 | cut -d':' -f2 | tr -d ' '`"
@@ -92,7 +88,8 @@ rofi_cmd() {
 		-mesg "$mesg" \
 		${active} ${urgent} \
 		-markup-rows \
-		-theme ${theme}
+		-theme-str "$ROFI_LAUNCH_THEME_COLOR_STR" -theme-str "$ROFI_LAUNCH_THEME_FONT_STR" \
+		-theme "$ROFI_LAUNCH_THEME_MAIN"
 }
 
 # Pass variables to rofi dmenu
@@ -130,5 +127,4 @@ case ${chosen} in
 		run_cmd --opt4
         ;;
 esac
-
 

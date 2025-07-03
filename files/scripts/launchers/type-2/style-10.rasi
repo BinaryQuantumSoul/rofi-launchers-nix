@@ -15,10 +15,6 @@ configuration {
 	drun-display-format:        "{name}";
 }
 
-/*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
-@import                          "shared/fonts.rasi"
-
 * {
     /* For Screens with 1920x1080 resolution */
     screen-margin:               180px 150px;
