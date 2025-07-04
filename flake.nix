@@ -75,7 +75,7 @@
     };
   in {
     packages.${system}.default = package;
-    devShell.${system} = shell;
+    devShells.${system}.default = shell;
 
     nixosModules.default = { config, lib, pkgs, ... }: {
       options.rofi-launchers.enable = lib.mkEnableOption "Enable rofi-launchers system-wide";
