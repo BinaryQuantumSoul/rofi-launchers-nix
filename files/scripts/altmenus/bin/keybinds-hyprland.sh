@@ -10,7 +10,7 @@ mapfile -t BINDINGS < <(grep '^bind=' "$HYPR_CONF" | \
 CHOICE=$(printf '%s\n' "${BINDINGS[@]}" | \
 rofi -dmenu \
     -i -markup-rows \
-    -p "Hyprland Keybinds:" \
+    -p "Hyprland Keybinds" \
     -theme-str 'window {width: 50%;} listview {columns: 1;}' \
     -theme-str "$ROFI_LAUNCH_THEME_COLOR_STR" -theme-str "$ROFI_LAUNCH_THEME_FONT_STR" \
     -theme "$ROFI_LAUNCH_THEME_MAIN")

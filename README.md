@@ -569,3 +569,4 @@ Same thing can be done with `openbox` by adding these lines to **`rc.xml`** file
 - [@davatorium](https://github.com/davatorium) for their awesome [Rofi](https://github.com/davatorium/rofi) software.
 - [@adi1090x](https://github.com/adi1090x) for their huge collection of Rofi [launchers](https://github.com/adi1090x/rofi) without which this project wouldn't exist.
 - [@olaberglund](https://github.com/olaberglund) for their Rofi launchers [nix derivation](https://github.com/olaberglund/nixos-config/blob/master/pkgs/rofi/package.nix) which was the inspiration for the `flake.nix` file.
+- [@jason9075](https://github.com/jason9075) for their Rofi [rofi-hyprland-keybinds-cheatsheet](https://github.com/jason9075/rofi-hyprland-keybinds-cheatsheet) package.
