@@ -489,8 +489,8 @@ content = 異
 content-background = black
 content-foreground = green
 
-click-left = ~/.config/rofi/launchers/type-1/launcher.sh
-click-right = launcher_t1
+click-left = rofi-launch  --bin launchers type-1 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11
+click-right = rofi-launch --bin launchers type-1 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11
 
 ;; Power Menu Module
 [module/powermenu]
@@ -500,19 +500,34 @@ content = 襤
 content-background = black
 content-foreground = red
 
-click-left = ~/.config/rofi/powermenu/type-1/powermenu.sh
-click-right = powermenu_t1
+click-left = rofi-launch --bin powermenus type-1 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11
+click-right = rofi-launch --bin powermenus type-1 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11
 ```
 
-#### with i3wm
+#### with i3wm , hyprland or niri
 
 You can also use them with the `keybindings` on your **window manager**, For example:
 
+- i3wm
 ```bash
 set $mod Mod4
+bindsym $mod+p exec --no-startup-id rofi-launch --bin launchers type-2 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11
+bindsym $mod+x exec --no-startup-id rofi-launch --bin powermenus type-2 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11
+```
 
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
-bindsym $mod+x exec --no-startup-id powermenu_t2
+- hyprland
+```ini
+$mod=SUPER
+bind=$mod, P, exec, rofi-launch --bin launchers type-2 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11
+bind=$mod, X, exec, rofi-launch --bin powermenus type-2 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11
+```
+
+- niri
+```kdl
+binds {
+    Mod+P { spawn "sh" "-c" "rofi-launch --bin launchers type-2 style-1 --theme gruvbox \"JetBrains Mono Nerd Font\" 11"; }
+    Mod+X { spawn "sh" "-c" "rofi-launch --bin powermenus type-2 style-1 --theme gruvbox \"JetBrains Mono Nerd Font\" 11"; }
+}
 ```
 
 #### with Openbox
@@ -523,12 +538,12 @@ Same thing can be done with `openbox` by adding these lines to **`rc.xml`** file
   <keyboard>
     <keybind key="W-p">
       <action name="Execute">
-        <command>launcher_t3</command>
+        <command>rofi-launch --bin launchers type-3 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11</command>
       </action>
     </keybind>
     <keybind key="W-x">
       <action name="Execute">
-        <command>~/.config/rofi/powermenu/type-3/powermenu.sh</command>
+        <command>rofi-launch --bin powermenus type-3 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11</command>
       </action>
     </keybind>
   </keyboard>
