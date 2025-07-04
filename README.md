@@ -107,6 +107,7 @@ If you use NixOS or home-manager, you can simply use this repository as a flake:
           ./configuration.nix
           # other nixos modules...
           inputs.rofi-launchers.nixosModule.default
+          {programs.rofi-launchers.enable = true;}
         ];
       };
     };
@@ -132,6 +133,7 @@ If you use NixOS or home-manager, you can simply use this repository as a flake:
           ./home.nix
           # other home modules...
           inputs.rofi-launchers.homeModule.default
+          {programs.rofi-launchers.enable = true;}
         ];
       };
     };
