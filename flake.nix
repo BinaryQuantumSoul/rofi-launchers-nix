@@ -11,13 +11,13 @@
       pname = "rofi-launchers";
       version = "unstable";
 
-      src = self;
+      src = self + "/files";
 
       buildInputs = [pkgs.rofi-wayland];
 
       postPatch = ''
         # Fix shell paths
-        files=$(find files -type l)
+        files=$(find -type l)
         for file in $files; do
           substituteInPlace $file \
             --replace-fail "$HOME/.config/rofi" "$out/share" \
@@ -25,7 +25,7 @@
         done
 
         # Fix style paths
-        files=$(find files -type f -name "*.rasi")
+        files=$(find -type f -name "*.rasi")
         for file in $files; do
           substituteInPlace "$file" \
             --replace-quiet "~/.config/rofi" "$out/share"
@@ -37,7 +37,7 @@
 
         # Copy all files
         mkdir -p "$out/share"
-        cp -r files/* "$out/share"
+        cp -r * "$out/share"
 
         # Install shell binary
         mkdir -p $out/bin
@@ -56,7 +56,6 @@
         homepage = "https://github.com/BinaryQuantumSoul/rofi-launchers-nix";
         maintainers = with pkgs.lib.maintainers; [];
         platforms = pkgs.lib.platforms.linux;
-        fonts = true;
       };
     };
 
@@ -64,13 +63,14 @@
       buildInputs = [self.packages.${system}.default];
 
       shellHook = ''
+        export PATH=${self.packages.${system}.default}/bin:$PATH
+        echo "rofi-launcher script in PATH"
+
         export XDG_DATA_DIRS="${self.packages.${system}.default}/share:$XDG_DATA_DIRS"
         export FONTCONFIG_PATH="${self.packages.${system}.default}/etc/fonts"
-        export PATH=${self.packages.${system}.default}/bin:$PATH
 
         fc-cache -v -f "${self.packages.${system}.default}/share/fonts/truetype"
-
-        echo "Fonts cache updated, rofi-launcher script in PATH"
+        echo "Fonts cache updated"
       '';
     };
   };
