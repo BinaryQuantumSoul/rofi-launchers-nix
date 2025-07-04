@@ -201,6 +201,25 @@ There are a few hard-coded values in this project that I'd like to modularize. I
 
 ## Gallery
 
+### Color Schemes
+
+<details>
+<summary><b>Color Schemes</b></summary>
+
+|Adapta|Arc|Black|Catppuccin|Cyberpunk|
+|--|--|--|--|--|
+|![img](previews/launchers/colors/color-1.png)|![img](previews/launchers/colors/color-2.png)|![img](previews/launchers/colors/color-3.png)|![img](previews/launchers/colors/color-4.png)|![img](previews/launchers/colors/color-5.png)|
+
+|Dracula|Everforest|Gruvbox|Lovelace|Navy|
+|--|--|--|--|--|
+|![img](previews/launchers/colors/color-6.png)|![img](previews/launchers/colors/color-7.png)|![img](previews/launchers/colors/color-8.png)|![img](previews/launchers/colors/color-9.png)|![img](previews/launchers/colors/color-10.png)|
+
+|Nord|Onedark|Paper|Solarized|Yousai|
+|--|--|--|--|--|
+|![img](previews/launchers/colors/color-11.png)|![img](previews/launchers/colors/color-12.png)|![img](previews/launchers/colors/color-13.png)|![img](previews/launchers/colors/color-14.png)|![img](previews/launchers/colors/color-15.png)|
+
+</details>
+
 ### Launchers
 
 <details>
@@ -298,27 +317,10 @@ There are a few hard-coded values in this project that I'd like to modularize. I
 
 </details>
 
-<details>
-<summary><b>Color Schemes</b></summary>
-
-|Adapta|Arc|Black|Catppuccin|Cyberpunk|
-|--|--|--|--|--|
-|![img](previews/launchers/colors/color-1.png)|![img](previews/launchers/colors/color-2.png)|![img](previews/launchers/colors/color-3.png)|![img](previews/launchers/colors/color-4.png)|![img](previews/launchers/colors/color-5.png)|
-
-|Dracula|Everforest|Gruvbox|Lovelace|Navy|
-|--|--|--|--|--|
-|![img](previews/launchers/colors/color-6.png)|![img](previews/launchers/colors/color-7.png)|![img](previews/launchers/colors/color-8.png)|![img](previews/launchers/colors/color-9.png)|![img](previews/launchers/colors/color-10.png)|
-
-|Nord|Onedark|Paper|Solarized|Yousai|
-|--|--|--|--|--|
-|![img](previews/launchers/colors/color-11.png)|![img](previews/launchers/colors/color-12.png)|![img](previews/launchers/colors/color-13.png)|![img](previews/launchers/colors/color-14.png)|![img](previews/launchers/colors/color-15.png)|
-
-</details>
-
 ### Applets
 
 <details>
-<summary><b>List of existing applets</b></summary>
+<summary><b>APPLETS LIST</b></summary>
 
 |Applets|Description|Required Applications|
 |:-|:-|:-|
