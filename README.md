@@ -1,4 +1,21 @@
-<!-- A huge collection of Rofi themes -->
+<p align="center">
+  <a href="#launchers" target="_blank"><img alt="undefined" src="https://img.shields.io/badge/launchers-skyblue?style=for-the-badge"></a>
+  <a href="#applets" target="_blank"><img alt="undefined" src="https://img.shields.io/badge/applets-lightgreen?style=for-the-badge"></a>
+  <a href="#powermenus" target="_blank"><img alt="undefined" src="https://img.shields.io/badge/powermenus-pink?style=for-the-badge"></a>
+</p>
+
+# Rofi Launchers Nix
+
+This fork of Rofi launchers has two purposes:
+1. Provide an all-in-one CLI for running all launchers with corresponding type, style, color scheme and fonts
+2. Provide a Nix flake to easily install it on nix-capable systems
+
+## What is Rofi?
+
+[Rofi](https://github.com/davatorium/rofi) is a window switcher, application launcher and dmenu replacement. Rofi started as a clone of simpleswitcher and It has been extended with extra features, like an application launcher and ssh-launcher, and can act as a drop-in dmenu replacement, making it a very versatile tool. Rofi, like dmenu, will provide the user with a textual list of options where one or more can be selected. This can either be running an application, selecting a window, or options provided by an external script.
+
+## What is Rofi launchers ?
+[Rofi launchers](https://github.com/adi1090x/rofi) is a huge collection of Rofi-based custom <i>Applets</i>, <i>Launchers</i> and <i>Powermenus</i>.
 
 <p align="center">
   <img src="previews/logo.png">
@@ -10,14 +27,6 @@
   <img src="https://img.shields.io/github/issues/adi1090x/rofi?color=violet&style=for-the-badge">
   <img src="https://img.shields.io/github/forks/adi1090x/rofi?color=teal&style=for-the-badge">
 </p>
-
-<p align="center">
-  <a href="https://github.com/adi1090x/rofi#launchers" target="_blank"><img alt="undefined" src="https://img.shields.io/badge/launchers-skyblue?style=for-the-badge"></a>
-  <a href="https://github.com/adi1090x/rofi#applets" target="_blank"><img alt="undefined" src="https://img.shields.io/badge/applets-lightgreen?style=for-the-badge"></a>
-  <a href="https://github.com/adi1090x/rofi#powermenus" target="_blank"><img alt="undefined" src="https://img.shields.io/badge/powermenus-pink?style=for-the-badge"></a>
-</p>
-
-<p align="center">A huge collection of <a href="https://github.com/davatorium/rofi">Rofi</a> based custom <i>Applets</i>, <i>Launchers</i> & <i>Powermenus</i>.</p>
 
 <details>
 <summary><b><code>Launchers</code></b></summary>
@@ -58,31 +67,50 @@
 
 </details>
 
-## What is Rofi?
+## Usage
 
-[Rofi](https://github.com/davatorium/rofi) is A window switcher, Application launcher and dmenu replacement. Rofi started as a clone of simpleswitcher and It has been extended with extra features, like an application launcher and ssh-launcher, and can act as a drop-in dmenu replacement, making it a very versatile tool. Rofi, like dmenu, will provide the user with a textual list of options where one or more can be selected. This can either be running an application, selecting a window, or options provided by an external script.
+You can use the `rofi-launch` command (or `~/.config/rofi/rofi-launch.sh` on imperative systems) as follows:
+```
+rofi-launch --bin <script> <type> <style> [app-name] --theme <color> <font-name> <font-size>
+```
+where
+- `<script>/<type>/<style>` is a subdirectory of `files/scripts`
+- `[app-name]` is the name of a binary file from `files/scripts/<script>/bin`
+- `<color>` is the name of a rasi file from `files/assets/colors`
+- `<font-name>` is a string and `<font-size>` is an integer
+
+The command will look for a `main.sh` file inside the `files/scripts/<script>/<type>/` directory or a `default.sh` file inside the `files/scripts/<script>/bin` directory. If `[app-name]` is specified, it will look at `files/scripts/<script>/bin/[app-name].sh`.
 
 ## Installation
 
+### Declarative
+On Nix-capable systeme like NixOS, home-manager or nix-darwin.
+You can simply use this repository as a flake:
+```nix
+todo
+```
+
+### Imperative
+
 > **Everything here is created on rofi version : `1.7.4`**
 
-* First, Make sure you have the same (stable) version of rofi installed.
+* First, make sure you have the same (stable) version of rofi installed.
   - On Arch / Arch-based : **`sudo pacman -S rofi`**
   - On Debian / Ubuntu : **`sudo apt-get install rofi`**
   - On Fedora : **`sudo dnf install rofi`**
 
-- Then, Clone this repository -
+- Then, clone this repository
 ```
-$ git clone --depth=1 https://github.com/adi1090x/rofi.git
+$ git clone --depth=1 https://BinaryQuantumSoul/rofi-launchers-nix
 ```
 
-- Change to cloned directory and make `setup.sh` executable -
+- Change to cloned directory and make `setup.sh` executable
 ```
 $ cd rofi
 $ chmod +x setup.sh
 ```
 
-- Run `setup.sh` to install the configs -
+- Run `setup.sh` to install the configs
 ```
 $ ./setup.sh
 
@@ -94,41 +122,35 @@ $ ./setup.sh
 [*] Successfully Installed.
 ```
 
+- (Optional) Add `~/.config/rofi/rofi-launch.sh` to `$PATH`
+  - In `bash`
+  ``` bash
+  echo PATH=$HOME/.config/rofi/:$PATH >> ~/.bashrc
+  ```
+  - In `zsh`
+  ``` zsh
+  echo PATH=$HOME/.config/rofi/:$PATH >> ~/.zshrc
+  ```
+
+> **Warning:** After changing the shell files, Logout and Login back again to update the `$PATH` environment variable.
+
 - That's it, These themes are now installed on your system.
 
 > **Note** : These themes are like an ecosystem, everything here is connected with each other in some way. So... before modifying anything by your own, make sure you know what you doing.
 
----
+## Notes on hard-code
+There are a few hard-coded values in this project that I'd like to modularize. In the meantime, they are listed here.
 
-<p align="center">
-  <a href="https://github.com/sponsors/adi1090x"><img src="previews/sponsor.png" width="256px"></a>
-</p>
+- Launchers colors in `type-5`, `type-6` and `type-7` are hard-coded (based on image colors) and can be changed by editing the respective `style-X.rasi` file.
 
-<p align="center">
-  <b>Special thanks to all the Sponsors</b>. Maintenance of this project is made possible by you guys. If you'd like to sponsor this project and have your avatar appear below, <a href="https://github.com/sponsors/adi1090x">click here</a> 💖
-</p>
+- Powermenus colors in `type-5` and `type-6` are hard-coded (based on image colors) and can be changed by editing the respective `style-X.rasi` file.
 
-<p align="center">
-  <!-- sponsors --><a href="https://github.com/davidtoska"><img src="https:&#x2F;&#x2F;github.com&#x2F;davidtoska.png" width="60px" alt="User avatar: David Toska" /></a><a href="https://github.com/snubbi1954-elementary"><img src="https:&#x2F;&#x2F;github.com&#x2F;snubbi1954-elementary.png" width="60px" alt="User avatar: Carl Andersen" /></a><a href="https://github.com/dgxlab"><img src="https:&#x2F;&#x2F;github.com&#x2F;dgxlab.png" width="60px" alt="User avatar: David Vargas" /></a><a href="https://github.com/jxtrt"><img src="https:&#x2F;&#x2F;github.com&#x2F;jxtrt.png" width="60px" alt="User avatar: jtrt" /></a><!-- sponsors -->
-</p>
+- Applets softwares are hard-coded, edit the scripts in `~/.config/rofi/applets/bin` directory.
+- Applets colors in `type-4` and `type-5` are hard-coded (based on image colors) and can be changed by editing the respective `style-X.rasi` file.
 
----
+## Gallery
 
-## Launchers
-
-**`Change Style` :** Edit `~/.config/rofi/launchers/type-X/launcher.sh` script and edit the following line to use the style you like.
-```
-theme='style-1'
-```
-
-**`Change Colors` :** Edit `~/.config/rofi/launchers/type-X/shared/colors.rasi` file and edit the following line to use the color-scheme you like.
-```css
-@import "~/.config/rofi/assets/colors/onedark.rasi"
-```
-
-> Colors in `type-5`, `type-6` and `type-7` are hard-coded (based on image colors) and can be changed by editing the respective **`style-X.rasi`** file.
-
-#### Previews
+### Launchers
 
 <details>
 <summary><b>Type 1</b></summary>
@@ -225,8 +247,6 @@ theme='style-1'
 
 </details>
 
----
-
 <details>
 <summary><b>Color Schemes</b></summary>
 
@@ -244,7 +264,10 @@ theme='style-1'
 
 </details>
 
-## Applets
+### Applets
+
+<details>
+<summary><b>List of existing applets</b></summary>
 
 |Applets|Description|Required Applications|
 |:-|:-|:-|
@@ -258,22 +281,8 @@ theme='style-1'
 |**`Screenshot`**|Take screenshots using **`maim`**|`maim`, `xrandr`, `dunst`, `xclip`|
 |**`Volume`**|Display and control volume with dynamic icons and mute status|`amixer` and `pavucontrol`|
 
-> To use your programs with these applets, Edit the scripts in `~/.config/rofi/applets/bin` directory.
+</details>
 
-**`Change Theme` :** Edit `~/.config/rofi/applets/shared/theme.bash` script and edit the following line to use the type and style you like.
-```ini
-type="$HOME/.config/rofi/scripts/applets/type-1"
-style='style-1.rasi'
-```
-
-**`Change Colors` :** Edit `~/.config/rofi/applets/shared/colors.rasi` file and edit the following line to use the color-scheme you like.
-```css
-@import "~/.config/rofi/assets/colors/onedark.rasi"
-```
-
-> Colors in `type-4` and `type-5` are hard-coded (based on image colors) and can be changed by editing the respective **`style-X.rasi`** file.
-
-#### Previews
 
 <details>
 <summary><b>Apps as root</b></summary>
@@ -356,21 +365,7 @@ style='style-1.rasi'
 
 </details>
 
-## Powermenus
-
-**`Change Style` :** Edit `~/.config/rofi/powermenu/type-X/powermenu.sh` script and edit the following line to use the style you like.
-```
-theme='style-1'
-```
-
-**`Change Colors` :** Edit `~/.config/rofi/powermenu/type-X/shared/colors.rasi` file and edit the following line to use the color-scheme you like.
-```css
-@import "~/.config/rofi/assets/colors/onedark.rasi"
-```
-
-> Colors in `type-5` and `type-6` are hard-coded (based on image colors) and can be changed by editing the respective **`style-X.rasi`** file.
-
-#### Previews
+### Powermenus
 
 <details>
 <summary><b>Type 1</b></summary>
@@ -430,29 +425,7 @@ theme='style-1'
 
 </details>
 
-## Tips
-
-#### Simple way to execute scripts
-
-There's a `$HOME/.config/rofi/scripts/scripts` directory, which contains links to each script. you can execute these links to open any type of Launcher, Applet or Powermenu.
-
-You can add `$HOME/.config/rofi/scripts/scripts` directory to your `$PATH` variable so that entering `t7_launcher` in the terminal (or executing this command) will summon the ***type-7 launcher***. you can do it by -
-
-- In `bash`
-``` bash
-# Add directory to the $PATH variable
-echo "PATH=$PATH:~/.config/rofi/scripts" >> ~/.profile
-```
-
-- In `zsh` (oh-my-zsh)
-``` zsh
-# Edit .zshrc and add this line
-export PATH=$HOME/.config/rofi/scripts/scripts:$PATH
-```
-
-> **Warning:** After changing the shell files, Logout and Login back again to update the `$PATH` environment variable.
-
-## Usage
+## Usage with other softwares
 
 #### with polybar
 
@@ -512,8 +485,7 @@ Same thing can be done with `openbox` by adding these lines to **`rc.xml`** file
   </keyboard>
 ```
 
-## FYI
-
-- For previous versions, check the respective branch, [1.7.0](https://github.com/adi1090x/rofi/tree/1.7.0) is the most recent branch.
-- These themes are created on a display with **1920x1080** resolution. Everything should work fine on your display as well, except fullscreen themes. So Adjust the **`margin`** and **`padding`** by yourself.
-- The purpose of this repository is to provide you a complete (almost) reference. So by using the files as reference, You can theme rofi by yourself.
+## Thanks to
+- [@davatorium](https://github.com/davatorium) for their awesome [Rofi](https://github.com/davatorium/rofi) software.
+- [@adi1090x](https://github.com/adi1090x) for their huge collection of Rofi [launchers](https://github.com/adi1090x/rofi) without which this project wouldn't exist.
+- [@olaberglund](https://github.com/olaberglund) for their Rofi launchers [nix derivation](https://github.com/olaberglund/nixos-config/blob/master/pkgs/rofi/package.nix) which was the inspiration for the `flake.nix` file.
