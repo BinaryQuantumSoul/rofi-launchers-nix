@@ -6,8 +6,8 @@
   outputs = { self, nixpkgs }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
-  in {
-    packages.${system}.default = pkgs.stdenvNoCC.mkDerivation {
+
+    package = pkgs.stdenvNoCC.mkDerivation {
       pname = "rofi-launchers";
       version = "unstable";
 
@@ -59,19 +59,22 @@
       };
     };
 
-    devShell.${system} = pkgs.mkShell {
-      buildInputs = [self.packages.${system}.default];
+    shell = pkgs.mkShell {
+      buildInputs = [package];
 
       shellHook = ''
-        export PATH=${self.packages.${system}.default}/bin:$PATH
-        echo "rofi-launcher script in PATH"
+        export PATH=${package}/bin:$PATH
+        echo "> Script rofi-launcher in PATH"
 
-        export XDG_DATA_DIRS="${self.packages.${system}.default}/share:$XDG_DATA_DIRS"
-        export FONTCONFIG_PATH="${self.packages.${system}.default}/etc/fonts"
+        export XDG_DATA_DIRS="${package}/share:$XDG_DATA_DIRS"
+        export FONTCONFIG_PATH="${package}/etc/fonts"
 
-        fc-cache -v -f "${self.packages.${system}.default}/share/fonts/truetype"
-        echo "Fonts cache updated"
+        fc-cache -v -f "${package}/share/fonts/truetype"
+        echo "> Fonts cache updated"
       '';
     };
+  in {
+    packages.${system}.default = package;
+    devShell.${system} = shell;
   };
 }
