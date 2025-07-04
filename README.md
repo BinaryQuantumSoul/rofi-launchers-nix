@@ -84,10 +84,54 @@ The command will look for a `main.sh` file inside the `files/scripts/<script>/<t
 ## Installation
 
 ### Declarative
-On Nix-capable systeme like NixOS, home-manager or nix-darwin.
-You can simply use this repository as a flake:
+If you use NixOS or home-manager, you can simply use this repository as a flake:
+- NixOS
 ```nix
-todo
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # other flakes...
+    rofi-launchers.url = "github:BinaryQuantumSoul/rofi-launchers-nix";
+  };
+
+  outputs = { self, nixpkgs, , ... }@inputs: {
+    nixosConfigurations = {
+      "myHost" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          # other nixos modules...
+          inputs.rofi-launchers.nixosModule.default
+        ];
+      };
+    };
+  };
+}
+```
+- home-manager standalone
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # other flakes...
+    rofi-launchers.url = "github:BinaryQuantumSoul/rofi-launchers-nix";
+  };
+  
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+    homeConfigurations = {
+      "myUser" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [
+          ./home.nix
+          # other home modules...
+          inputs.rofi-launchers.homeModule.default
+        ];
+      };
+    };
+  };
+};
 ```
 
 ### Imperative
