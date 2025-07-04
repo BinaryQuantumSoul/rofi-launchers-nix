@@ -70,7 +70,7 @@ This fork of Rofi launchers has two purposes:
 ## Usage
 
 You can use the `rofi-launch` command (or `~/.config/rofi/rofi-launch.sh` on imperative systems) as follows:
-```
+```sh
 rofi-launch --bin <script> <type> <style> [app-name] --theme <color> <font-name> <font-size>
 ```
 where
@@ -80,6 +80,11 @@ where
 - `<font-name>` is a string and `<font-size>` is an integer
 
 The command will look for a `main.sh` file inside the `files/scripts/<script>/<type>/` directory or a `default.sh` file inside the `files/scripts/<script>/bin` directory. If `[app-name]` is specified, it will look at `files/scripts/<script>/bin/[app-name].sh`.
+
+Example:
+```sh
+rofi-launch  --bin launchers type-1 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11
+```
 
 ## Installation
 
