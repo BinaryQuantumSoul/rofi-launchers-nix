@@ -79,12 +79,12 @@
 
     nixosModules.default = {config, lib, pkgs, ...}: {
       options.programs.rofi-launchers.enable = lib.mkEnableOption "Enable rofi-launchers system-wide";
-      config = lib.mkIf config.rofi-launchers.enable {environment.systemPackages = [package];};
+      config = lib.mkIf config.programs.rofi-launchers.enable {environment.systemPackages = [package];};
     };
 
     homeModules.default = {config, lib, pkgs, ...}: {
       options.programs.rofi-launchers.enable = lib.mkEnableOption "Enable rofi-launchers package";
-      config = lib.mkIf config.rofi-launchers.enable {home.packages = [package];};
+      config = lib.mkIf config.programs.rofi-launchers.enable {home.packages = [package];};
     };
   };
 }
