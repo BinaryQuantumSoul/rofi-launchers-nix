@@ -141,6 +141,18 @@ If you use NixOS or home-manager, you can simply use this repository as a flake:
 };
 ```
 
+> *Note*: Don't forget to install fonts in your system !
+- NixOS
+```nix
+{pkgs, ...}: {
+  fonts.packages = with pkgs; [
+    icomoon-feather
+    nerd-fonts.iosevka
+    nerd-fonts.jetbrains-mono
+  ];
+}
+```
+
 ### Imperative
 
 > **Everything here is created on rofi version : `1.7.4`**
