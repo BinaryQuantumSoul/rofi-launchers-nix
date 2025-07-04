@@ -43,7 +43,7 @@ Options:
 
 Examples:
   $0 --bin launchers type-1 style-1 --theme gruvbox "JetBrains Mono Nerd Font" 11
-  $0 --bin applets type-1 style-1 volume --theme onedark "Iosevka Nerd Font" 12
+  $0 --bin powermenus type-1 style-1 --theme onedark "Iosevka Nerd Font" 12
 EOF
   exit 0
 }
