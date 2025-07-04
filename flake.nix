@@ -35,9 +35,6 @@
       installPhase = ''
         runHook preInstall
 
-        # Ignore imperative fonts
-        rm -r assets/fonts
-
         # Copy all files
         mkdir -p "$out/share"
         cp -r * "$out/share"
@@ -45,6 +42,11 @@
         # Install shell binary
         mkdir -p $out/bin
         install -Dm755 $out/share/rofi-launch.sh $out/bin/rofi-launch
+
+        # Move fonts
+        mkdir -p "$out/share/fonts/truetype"
+        mv "$out/share/assets/fonts/"* "$out/share/fonts/truetype/"
+        rmdir "$out/share/assets/fonts"
 
         runHook postInstall
       '';
