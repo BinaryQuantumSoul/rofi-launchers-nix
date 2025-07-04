@@ -8,7 +8,7 @@ set -e
 list_options() {
   local path="$1"
   echo "Available $2:"
-  find "$path" -mindepth 1 -maxdepth 1 -exec basename {} \; | sed 's/\.rasi$//'
+  find "$path" -mindepth 1 -maxdepth 1 -exec basename {} \; | sed 's/\.rasi$//'  | sed 's/\.sh$//'
 }
 
 error() {
